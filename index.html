@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>AURELIA COFFEE — Indian Specialty Coffee, Crafted With Intention.</title>
+  <meta name="description" content="Discover Aurelia Coffee. Exceptional single-origin specialty coffee sourced from the high-altitude shade-grown estates of Chikkamagaluru, Kodagu, Araku Valley, and Nilgiris. Micro-batch roasted in India with intention.">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="AURELIA COFFEE — Indian Specialty Coffee">
+  <meta property="og:description" content="Single-origin shade-grown specialty coffee from India's finest highland estates. Crafted with intention.">
+  <meta property="og:type" content="website">
+
+  <!-- Google Fonts: Fraunces (Editorial Display Serif) & Inter (Modern Structural Sans) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Lenis & GSAP CDN -->
+  <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <!-- Core Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       ENTRANCE SCREEN (1-2s Refined Luxury Reveal)
+       ========================================================================== -->
+  <div id="entranceScreen" aria-label="Aurelia Coffee Loading Screen" aria-live="polite">
+    <div class="entrance-content">
+      <div class="entrance-wordmark">AURELIA</div>
+      <div class="entrance-line" aria-hidden="true"></div>
+      <div class="entrance-tagline">INDIAN COFFEE · CRAFTED WITH INTENTION</div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       NAVIGATION BAR
+       ========================================================================== -->
+  <nav class="site-nav" id="mainNav" aria-label="Main Navigation">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo" aria-label="Aurelia Coffee Home">
+        AURELIA<span class="dot" aria-hidden="true"></span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#hero">Overview</a></li>
+        <li><a href="#sourcing">Terroir</a></li>
+        <li><a href="#craft">Craft</a></li>
+        <li><a href="#collection">Collection</a></li>
+        <li><a href="#journal">Journal</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="https://api.whatsapp.com/send?phone=918074784116&text=Hello%20Aurelia%2C%20I%20am%20interested%20in%20your%20Indian%20coffee%20collection.%20I%20would%20like%20to%20know%20more%20about%20the%20available%20coffees%20and%20how%20to%20order." class="btn-pill btn-pill-outline" target="_blank" rel="noopener">
+          WhatsApp Order →
+        </a>
+        <button class="burger" id="burgerBtn" aria-label="Toggle mobile menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-menu" id="mobileDrawer">
+    <a href="#hero" class="m-nav-link">Overview</a>
+    <a href="#sourcing" class="m-nav-link">Terroir</a>
+    <a href="#craft" class="m-nav-link">Craft</a>
+    <a href="#collection" class="m-nav-link">Collection</a>
+    <a href="#journal" class="m-nav-link">Journal</a>
+    <a href="https://api.whatsapp.com/send?phone=918074784116&text=Hello%20Aurelia%2C%20I%20am%20interested%20in%20your%20Indian%20coffee%20collection." class="btn-pill btn-pill-primary" style="margin-top:20px;">
+      Order via WhatsApp →
+    </a>
+  </div>
+
+  <!-- ==========================================================================
+       SECTION 1: FULL-SCREEN CINEMATIC HERO
+       100vw × 100vh — background video fills the entire viewport
+       ========================================================================== -->
+  <header class="hero-fullscreen" id="hero">
+
+    <!-- Full-bleed background: video with static image fallback -->
+    <video
+      id="heroBgVideo"
+      class="hero-bg-video"
+      autoplay
+      muted
+      loop
+      playsinline
+      webkit-playsinline
+      preload="metadata"
+      aria-hidden="true">
+      <source src="https://videos.pexels.com/video-files/3015510/3015510-hd_1920_1080_24fps.mp4" type="video/mp4">
+    </video>
+    <!-- Static image fallback (also renders behind video until it loads) -->
+    <img
+      id="heroBgImg"
+      class="hero-bg-img"
+      src="assets/hero-estate.jpg"
+      alt=""
+      aria-hidden="true">
+
+    <!-- Cinematic grade / overlay gradients -->
+    <div class="hero-grade" aria-hidden="true"></div>
+
+    <!-- Primary text content — bottom-left editorial layout -->
+    <div class="hero-content" id="heroContent">
+      <div class="hero-kicker-pill" id="heroKicker">
+        <span>Western Ghats · Single-Origin</span>
+      </div>
+      <h1 id="heroHeadline">Indian<br>Coffee,<br><em style="font-style:italic; color:var(--tan-light);">Crafted</em><br>With<br>Intention.</h1>
+      <p class="hero-sub" id="heroSub">
+        Grown under native shade canopies in the high-altitude mists of Chikkamagaluru, Kodagu, and Araku Valley. Hand-picked, micro-batch roasted, and poured with precision.
+      </p>
+      <div class="hero-actions" id="heroActions">
+        <a href="#collection" class="btn-pill btn-pill-primary">Explore Collection →</a>
+        <a href="#sourcing" class="btn-pill btn-pill-outline">Our Terroir</a>
+      </div>
+    </div>
+
+    <!-- Bottom-right metadata strip -->
+    <div class="hero-meta-strip" id="heroMeta">
+      <div class="meta-year">EST. 2024 · INDIA</div>
+      <div class="meta-tagline">Where the Ghats meet the cup.</div>
+    </div>
+
+    <!-- Scroll prompt -->
+    <div class="hero-scroll-cue" id="heroScrollCue">
+      <span>SCROLL</span>
+      <div class="cue-line" aria-hidden="true"></div>
+    </div>
+
+  </header>
+
+  <!-- ==========================================================================
+       SECTION 2: EDITORIAL MANIFESTO STATEMENT
+       (STUDIED FROM REFERENCE VIDEO FRAME 03.6s "This isn't just about real estate")
+       ========================================================================== -->
+  <section class="manifesto-section" id="manifesto">
+    <div class="wrap">
+      <div class="statement-center">
+        <div class="kicker">The Aurelia Manifesto</div>
+        <h2 class="statement-heading">
+          This isn't just <span class="muted-words">about coffee.</span>
+        </h2>
+        <p class="statement-sub">
+          It is about quiet reverence for terroir, ancient shade trees, and the high-altitude mists of the Western Ghats. It is the patience of careful drum roasting, and the profound clarity of a single expressive cup.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       LIGHT CHAPTER 1: SOURCING STEPS & PHILOSOPHY
+       (STUDIED FROM REFERENCE VIDEO FRAME 04.4s "Real Estate, Rewired / Steps 01 02 03")
+       ========================================================================== -->
+  <div class="light-chapter" id="sourcing">
+    <section class="sourcing-steps-section">
+      <div class="wrap">
+        <p class="sourcing-intro-text">
+          "It's about origin. Soil integrity. Unhurried craft. You're not just brewing a morning cup — you are tasting the biodiversity of Indian agroforestry, mountain monsoons, and small-batch dedication."
+        </p>
+
+        <div class="asymmetric-steps-grid">
+          <!-- Left Sticky Column (Reference Frame 04.4s) -->
+          <div class="sticky-col-left">
+            <div class="kicker">The Terroir Journey</div>
+            <h2>
+              Indian Specialty,<br>
+              <span class="accent-word">Redefined.</span>
+            </h2>
+            <p>
+              We bypass commodity supply chains to work directly with generational growers across Karnataka, Tamil Nadu, and Andhra Pradesh.
+            </p>
+            <a href="#collection" class="btn-pill btn-pill-dark">
+              Explore Our Coffees →
+            </a>
+          </div>
+
+          <!-- Right Sequential Steps Column -->
+          <div class="steps-list">
+            <div class="step-item">
+              <span class="step-num">01</span>
+              <div class="step-body">
+                <h3>Single-Origin Highland Cultivation.</h3>
+                <p> Grown between 900m and 1,500m above sea level under a biodiverse canopy of fig, jackfruit, and silver oak trees that slow maturation and enrich sweetness.</p>
+              </div>
+            </div>
+
+            <div class="step-item">
+              <span class="step-num">02</span>
+              <div class="step-body">
+                <h3>Selective Hand-Harvesting.</h3>
+                <p> Skilled estate pickers hand-select only perfectly ripe ruby cherries over multiple passes through the trees, ensuring zero astringency in the cup.</p>
+              </div>
+            </div>
+
+            <div class="step-item">
+              <span class="step-num">03</span>
+              <div class="step-body">
+                <h3>Intentional Drum Roasting.</h3>
+                <p> Roasted in micro-batches in our Bengaluru roastery using customized roast profiles that highlight origin acidity, delicate florals, and natural caramel sweetness.</p>
+              </div>
+            </div>
+
+            <div class="step-item">
+              <span class="step-num">04</span>
+              <div class="step-body">
+                <h3>Brewing Clarity.</h3>
+                <p> Whether extracted through a V60 pour-over, Aeropress, or traditional brass South Indian filter, each bean expresses clear origin identity.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         LIGHT CHAPTER 2: EDITORIAL MAGAZINE SPREAD
+         (STUDIED FROM REFERENCE VIDEO FRAME 05.2s & 06.4s)
+         ========================================================================== -->
+    <section class="editorial-spread-section" id="heritage">
+      <div class="wrap">
+        <div class="magazine-header">
+          <div class="kicker">Estate Heritage</div>
+          <h2>"Never Compromise Your Morning Cup."</h2>
+        </div>
+
+        <!-- Asymmetric Photo Composition (Right: Large Aerial, Left: Offset Tall Portrait) -->
+        <div class="magazine-photos-layout">
+          <div class="photo-portrait-offset">
+            <img src="assets/farmer-harvest.jpg" alt="South Indian coffee harvester hand-picking ripe cherries in Kodagu Coorg" loading="lazy">
+            <div class="photo-caption">Kodagu Coorg · Hand-Harvesting Ripe Arabica</div>
+          </div>
+          <div class="photo-aerial-main">
+            <img src="https://images.pexels.com/photos/14776853/pexels-photo-14776853.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="Misty forested hills and shade canopy of Karnataka coffee plantation" loading="lazy">
+            <div class="photo-caption">Western Ghats Biosphere Reserve · 1,400m Elevation</div>
+          </div>
+        </div>
+
+        <!-- Dual Artisans + Editorial Testimonial Spread (Reference Frame 06.4s) -->
+        <div class="artisans-quote-spread">
+          <div class="artisans-img-card">
+            <img src="assets/cupping-artisans.jpg" alt="Aurelia coffee roasters cupping fresh pour-over coffee batches in Bengaluru lab" loading="lazy">
+            <div class="artisans-badge">Estate Lab · Cupping & Quality Analysis</div>
+          </div>
+          <div class="editorial-quote-block">
+            <p class="editorial-quote-text">
+              "A remarkably clean cup with extraordinary depth. The Chikkamagaluru Arabica reveals delicate jasmine florals and honeyed citrus sweetness that lingers long after the finish. Aurelia has established a new benchmark for Indian specialty coffee."
+            </p>
+            <div class="quote-author-row">
+              <div>
+                <strong>Ananya Rao</strong> — Head Sommelier & Sensory Q-Grader, Bengaluru
+              </div>
+              <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ==========================================================================
+       DARK CHAPTER: THE CRAFT & INTERACTIVE PROCESS ROWS
+       (STUDIED FROM REFERENCE VIDEO FRAME 06.8s - 08.0s "BUY / SELL / RENT")
+       ========================================================================== -->
+  <div class="dark-chapter" id="craft">
+    <div class="wrap">
+      
+      <!-- Ghost Header Reflection (Matching Reference Video Frame 06.8s & 08.0s) -->
+      <div class="ghost-header-wrap">
+        <div class="kicker" style="justify-content:center;">The Artisanal Transformation</div>
+        <div class="ghost-echo" aria-hidden="true">How AURELIA Crafts Every Cup</div>
+        <h2 class="ghost-main">How AURELIA Crafts Every Cup</h2>
+      </div>
+
+      <!-- 3 Massive Horizontal Interactive Rows (Terroir / Roast / Extract) -->
+      <div class="craft-interactive-table">
+        
+        <!-- Row 01: TERROIR -->
+        <div class="craft-row active" data-craft-idx="0">
+          <div class="craft-row-bg" style="background-image: url('assets/hero-estate.jpg');"></div>
+          <div class="craft-row-meta">
+            <div class="craft-badge-tag">STAGE 01 · ORIGIN</div>
+            <p class="craft-row-desc">High-altitude microclimates in Karnataka & Tamil Nadu shaped by mountain monsoons and mineral-rich volcanic loam.</p>
+          </div>
+          <div class="craft-row-title-wrap">
+            <span class="craft-giant-title">Terroir</span>
+          </div>
+          <div class="craft-row-arrow" aria-hidden="true">→</div>
+        </div>
+
+        <!-- Row 02: ROAST -->
+        <div class="craft-row" data-craft-idx="1">
+          <div class="craft-row-bg" style="background-image: url('https://images.pexels.com/photos/7125705/pexels-photo-7125705.jpeg?auto=compress&cs=tinysrgb&w=2200');"></div>
+          <div class="craft-row-meta">
+            <div class="craft-badge-tag">STAGE 02 · PROFILE</div>
+            <p class="craft-row-desc">Slow convection drum roasting developed to preserve origin aromatics rather than masking beans with smoky char.</p>
+          </div>
+          <div class="craft-row-title-wrap">
+            <span class="craft-giant-title">Roast</span>
+          </div>
+          <div class="craft-row-arrow" aria-hidden="true">→</div>
+        </div>
+
+        <!-- Row 03: EXTRACT -->
+        <div class="craft-row" data-craft-idx="2">
+          <div class="craft-row-bg" style="background-image: url('https://images.pexels.com/photos/7658089/pexels-photo-7658089.jpeg?auto=compress&cs=tinysrgb&w=2200');"></div>
+          <div class="craft-row-meta">
+            <div class="craft-badge-tag">STAGE 03 · THE CUP</div>
+            <p class="craft-row-desc">Calibrated for pour-over clarity, silky espresso cremas, and rich traditional South Indian filter extractions.</p>
+          </div>
+          <div class="craft-row-title-wrap">
+            <span class="craft-giant-title">Extract</span>
+          </div>
+          <div class="craft-row-arrow" aria-hidden="true">→</div>
+        </div>
+
+      </div>
+
+      <!-- ==========================================================================
+           COLLECTION SHOWCASE SECTION
+           (STUDIED FROM REFERENCE VIDEO FRAME 08.4s "SUPPORT BEYOND BUYING & SELLING")
+           ========================================================================== -->
+      <div class="collection-showcase-section" id="collection">
+        
+        <div class="collection-header-row">
+          <div>
+            <div class="kicker">Signature Collection</div>
+            <h2>
+              Four Expressions<br>
+              <span class="muted-line">of Indian Specialty</span>
+            </h2>
+          </div>
+          <div class="collection-header-side">
+            <p>From misty Western Ghats to the Nilgiri highlands, each coffee captures an authentic regional signature.</p>
+            <a href="https://api.whatsapp.com/send?phone=918074784116&text=Hello%20Aurelia%2C%20I%20would%20like%20to%20order%20the%20complete%20Signature%20Tasting%20Flight." class="btn-pill btn-pill-outline" target="_blank" rel="noopener">
+              Order Tasting Flight →
+            </a>
+          </div>
+        </div>
+
+        <!-- 4 Distinct Editorial Product Cards -->
+        <div class="products-quad-grid">
+          
+          <!-- Card 1: Chikkamagaluru -->
+          <article class="product-editorial-card">
+            <div class="card-photo-layer">
+              <img src="https://images.pexels.com/photos/35652370/pexels-photo-35652370.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="Chikkamagaluru Arabica landscape" loading="lazy">
+            </div>
+            <div class="card-gradient-overlay"></div>
+            <div class="card-content-layer">
+              <span class="card-origin-pill">Light Roast · 01</span>
+              <h3 class="card-title">Chikkamagaluru Arabica</h3>
+              <div class="card-notes">Jasmine · Citrus · Honey</div>
+              <p class="card-desc">Lush floral aromatics with vibrant lime sweetness, grown at high elevation in the birthplace of Indian coffee.</p>
+              <div class="card-bottom-row">
+                <span class="card-altitude">1,000–1,400m</span>
+                <a href="https://api.whatsapp.com/send?phone=918074784116&text=Hello%20Aurelia%2C%20I%20am%20interested%20in%20Chikkamagaluru%20Arabica." class="card-link" target="_blank" rel="noopener">Taste Roast →</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 2: Kodagu -->
+          <article class="product-editorial-card">
+            <div class="card-photo-layer">
+              <img src="https://images.pexels.com/photos/14776853/pexels-photo-14776853.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="Kodagu Estate Coorg landscape" loading="lazy">
+            </div>
+            <div class="card-gradient-overlay"></div>
+            <div class="card-content-layer">
+              <span class="card-origin-pill">Medium Roast · 02</span>
+              <h3 class="card-title">Kodagu Estate</h3>
+              <div class="card-notes">Caramel · Cocoa · Spice</div>
+              <p class="card-desc">A remarkably balanced cup with deep toffee sweetness, cardamom warmth, and a rich, rounded body.</p>
+              <div class="card-bottom-row">
+                <span class="card-altitude">900–1,500m</span>
+                <a href="https://api.whatsapp.com/send?phone=918074784116&text=Hello%20Aurelia%2C%20I%20am%20interested%20in%20Kodagu%20Estate." class="card-link" target="_blank" rel="noopener">Taste Roast →</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 3: Araku Valley -->
+          <article class="product-editorial-card">
+            <div class="card-photo-layer">
+              <img src="https://images.pexels.com/photos/720204/pexels-photo-720204.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="Araku Valley golden hills" loading="lazy">
+            </div>
+            <div class="card-gradient-overlay"></div>
+            <div class="card-content-layer">
+              <span class="card-origin-pill">Medium Roast · 03</span>
+              <h3 class="card-title">Araku Valley Robusta</h3>
+              <div class="card-notes">Dark Chocolate · Hazelnut · Jaggery</div>
+              <p class="card-desc">Highland tribal specialty with profound chocolate intensity, zero harshness, and natural cane sweetness.</p>
+              <div class="card-bottom-row">
+                <span class="card-altitude">900–1,200m</span>
+                <a href="https://api.whatsapp.com/send?phone=918074784116&text=Hello%20Aurelia%2C%20I%20am%20interested%20in%20Araku%20Valley%20Robusta." class="card-link" target="_blank" rel="noopener">Taste Roast →</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 4: Nilgiri Reserve -->
+          <article class="product-editorial-card">
+            <div class="card-photo-layer">
+              <img src="https://images.pexels.com/photos/9411139/pexels-photo-9411139.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="Nilgiris Blue Mountains misty landscape" loading="lazy">
+            </div>
+            <div class="card-gradient-overlay"></div>
+            <div class="card-content-layer">
+              <span class="card-origin-pill">Medium-Dark · 04</span>
+              <h3 class="card-title">Nilgiri Estate Reserve</h3>
+              <div class="card-notes">Cocoa · Walnut · Brown Sugar</div>
+              <p class="card-desc">Full-bodied and comforting, roasted to accentuate rich walnut butter notes and toasted brown sugar.</p>
+              <div class="card-bottom-row">
+                <span class="card-altitude">1,200–1,600m</span>
+                <a href="https://api.whatsapp.com/send?phone=918074784116&text=Hello%20Aurelia%2C%20I%20am%20interested%20in%20Nilgiri%20Estate%20Reserve." class="card-link" target="_blank" rel="noopener">Taste Roast →</a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+
+      <!-- ==========================================================================
+           INTERACTIVE SENSORY PROFILE & FLAVOR WHEEL
+           ========================================================================== -->
+      <div class="flavor-section" id="flavor">
+        <div class="flavor-container">
+          <div>
+            <div class="kicker">Sensory Analysis</div>
+            <h2 style="font-family:var(--font-display); font-size:clamp(2rem, 3.8vw, 3rem); line-height:1.15; margin-bottom:20px;">
+              Sensory Profile & Characteristics
+            </h2>
+            <p style="color:var(--dark-muted); margin-bottom:30px; font-size:1rem; line-height:1.6;">
+              Select an origin to view its calibrated tasting evaluation across our five cup dimensions.
+            </p>
+
+            <div class="flavor-controls" role="tablist">
+              <button class="flavor-tab-btn active" data-flavor="0">Chikkamagaluru</button>
+              <button class="flavor-tab-btn" data-flavor="1">Kodagu</button>
+              <button class="flavor-tab-btn" data-flavor="2">Araku Valley</button>
+              <button class="flavor-tab-btn" data-flavor="3">Nilgiri Reserve</button>
+            </div>
+
+            <div class="flavor-bars" id="flavorBars">
+              <div class="sensory-bar-item">
+                <div class="sensory-labels"><span>Floral & Aromatics</span><strong id="barLabel0">9 / 10</strong></div>
+                <div class="sensory-track"><div class="sensory-fill" id="barFill0" style="width: 90%;"></div></div>
+              </div>
+              <div class="sensory-bar-item">
+                <div class="sensory-labels"><span>Citrus Acidity</span><strong id="barLabel1">8 / 10</strong></div>
+                <div class="sensory-track"><div class="sensory-fill" id="barFill1" style="width: 80%;"></div></div>
+              </div>
+              <div class="sensory-bar-item">
+                <div class="sensory-labels"><span>Natural Sweetness</span><strong id="barLabel2">9 / 10</strong></div>
+                <div class="sensory-track"><div class="sensory-fill" id="barFill2" style="width: 90%;"></div></div>
+              </div>
+              <div class="sensory-bar-item">
+                <div class="sensory-labels"><span>Body & Texture</span><strong id="barLabel3">6 / 10</strong></div>
+                <div class="sensory-track"><div class="sensory-fill" id="barFill3" style="width: 60%;"></div></div>
+              </div>
+              <div class="sensory-bar-item">
+                <div class="sensory-labels"><span>Finish & Clarity</span><strong id="barLabel4">9 / 10</strong></div>
+                <div class="sensory-track"><div class="sensory-fill" id="barFill4" style="width: 90%;"></div></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dynamic Details Card -->
+          <div class="flavor-meta-panel" id="flavorMetaPanel">
+            <h3 class="f-meta-title" id="fMetaTitle">Chikkamagaluru Arabica</h3>
+            <div class="f-meta-sub" id="fMetaSub">Jasmine · Meyer Lemon · Wildflower Honey</div>
+            <p id="fMetaDesc" style="color:var(--dark-muted); line-height:1.65; font-size:0.95rem;">
+              Shaped by high elevation morning mist and slow bean maturation, delivering an expressive, tea-like floral cup with dazzling acidity.
+            </p>
+            <div class="f-meta-grid">
+              <div class="f-meta-cell"><span>Roast Level</span><strong id="fMetaRoast">Light Roast</strong></div>
+              <div class="f-meta-cell"><span>Altitude</span><strong id="fMetaAlt">1,000–1,400m</strong></div>
+              <div class="f-meta-cell"><span>Processing</span><strong id="fMetaProc">Fully Washed</strong></div>
+              <div class="f-meta-cell"><span>Recommended Brew</span><strong id="fMetaBrew">V60 Pour-over, Chemex</strong></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       LIGHT CHAPTER 3: THE COFFEE JOURNAL / DISPATCHES
+       (STUDIED FROM REFERENCE VIDEO FRAME 09.6s EDITORIAL REPORT LAYOUT)
+       ========================================================================== -->
+  <div class="light-chapter" id="journal">
+    <section class="journal-section">
+      <div class="wrap">
+        <div class="journal-split-layout">
+          
+          <!-- Left Articles & Editorial Column -->
+          <div class="journal-editorial-col">
+            <div class="section-head journal-head">
+              <div class="kicker">Field Notes & Dispatches</div>
+              <h2>Stories From The High Estates</h2>
+              <p>Read our ongoing journal documenting agricultural research, processing experiments, and life in the Western Ghats.</p>
+            </div>
+
+            <div class="journal-articles-list">
+              
+              <article class="journal-article-item">
+                <div class="journal-date">2026-04-01 · Agronomy & Terroir</div>
+                <h3 class="journal-article-title">
+                  The Western Ghats Monsoons: How Moisture & Elevation Shape Arabica Acidity
+                </h3>
+                <p class="journal-excerpt">
+                  An investigation into the unique microclimates of Bababudangiri. Why torrential monsoon rains followed by cool dry winters produce denser, sweeter coffee beans than equatorial counterparts.
+                </p>
+                <a href="#" class="journal-read-link">Read Dispatch →</a>
+              </article>
+
+              <article class="journal-article-item">
+                <div class="journal-date">2026-03-15 · Roastery Science</div>
+                <h3 class="journal-article-title">
+                  Slow Convection Roasting: Unlocking Jasmine & Bergamot Notes in Micro-Batches
+                </h3>
+                <p class="journal-excerpt">
+                  Behind the scenes at our Bengaluru roasting room: manipulating rate-of-rise (RoR) curves to preserve volatile floral esters without introducing grassy vegetal notes.
+                </p>
+                <a href="#" class="journal-read-link">Read Dispatch →</a>
+              </article>
+
+              <article class="journal-article-item">
+                <div class="journal-date">2026-02-28 · Direct Trade Ethics</div>
+                <h3 class="journal-article-title">
+                  Shade Canopies & Multi-Cropping: The Ecological Truth of South Indian Coffee
+                </h3>
+                <p class="journal-excerpt">
+                  Why shade-grown coffee estates in Kodagu sustain hundreds of bird and butterfly species, and how paying 35% above market commodity rates protects this ancient agroforestry canopy.
+                </p>
+                <a href="#" class="journal-read-link">Read Dispatch →</a>
+              </article>
+
+            </div>
+          </div>
+
+          <!-- Right Column: Large Vertical Visual Panel -->
+          <div class="journal-visual-panel journal-sticky-visual">
+            <div class="journal-visual-media-wrap">
+              <video 
+                class="journal-sticky-video" 
+                autoplay 
+                muted 
+                loop 
+                playsinline 
+                preload="metadata"
+                aria-label="Artisanal pour over coffee brewing in progress">
+                <source src="https://www.pexels.com/download/video/20534645/" type="video/mp4">
+              </video>
+              <div class="journal-visual-overlay"></div>
+              <div class="journal-visual-caption">
+                <span>FIELD ARCHIVE · VOL. 04</span>
+                <b>Bean · Roast · Terroir</b>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ==========================================================================
+       SECTION 9: EMOTIONAL FINAL CTA (CINEMATIC CONCLUSION)
+       (STUDIED FROM REFERENCE VIDEO FRAME 10.4s & 10.8s)
+       ========================================================================== -->
+  <section class="final-cta-section" id="order">
+    <div class="cta-backdrop-layer">
+      <img src="assets/final-cta.jpg" alt="Artisanal ceramic coffee cup steaming on dark stone table" loading="lazy">
+    </div>
+    <div class="cta-backdrop-grade" aria-hidden="true"></div>
+
+    <div class="wrap">
+      <div class="cta-content">
+        <div class="cta-kicker">AURELIA COFFEE · FRESHLY ROASTED</div>
+        <h2>Your next great cup starts here.</h2>
+        <p>
+          Experience the extraordinary nuance of single-origin Indian specialty coffee. Freshly roasted in micro-batches and shipped directly from our estate roastery to your door.
+        </p>
+        <div class="cta-buttons">
+          <a href="https://api.whatsapp.com/send?phone=918074784116&text=Hello%20Aurelia%2C%20I%20would%20like%20to%20order%20specialty%20coffee%20beans." class="btn-pill btn-pill-primary" target="_blank" rel="noopener">
+            Order On WhatsApp →
+          </a>
+          <a href="tel:+918074784116" class="btn-pill btn-pill-outline">
+            Call Roastery (+91 80747 84116)
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 10: MONUMENTAL ARCHITECTURAL FOOTER
+       (STUDIED & REPRODUCED FROM REFERENCE VIDEO FRAME 12.0s WITH GIANT WORDMARK)
+       ========================================================================== -->
+  <footer class="site-footer">
+    <div class="wrap">
+      
+      <!-- Top Grid: Newsletter & Links -->
+      <div class="footer-top-grid">
+        <div class="footer-newsletter">
+          <h4>Subscribe to our Dispatch</h4>
+          <p>Receive seasonal coffee release notes, estate harvest reports, and brewing guides.</p>
+          <form class="subscribe-form" onsubmit="event.preventDefault(); alert('Thank you for subscribing to Aurelia Coffee Dispatches.');">
+            <input type="email" placeholder="Enter your email address" required aria-label="Email address for newsletter">
+            <button type="submit" aria-label="Subscribe">→</button>
+          </form>
+          <div class="footer-contact-details">
+            <div><strong>Bengaluru Roastery:</strong> Indiranagar, Bengaluru, KA 560038</div>
+            <div><strong>Estate:</strong> Western Ghats Biosphere, Karnataka</div>
+            <div><strong>Direct Inquiries:</strong> +91 80747 84116 · orders@aureliacoffee.in</div>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h5>The Origins</h5>
+          <ul>
+            <li><a href="#collection">Chikkamagaluru</a></li>
+            <li><a href="#collection">Kodagu Coorg</a></li>
+            <li><a href="#collection">Araku Valley</a></li>
+            <li><a href="#collection">Nilgiri Reserve</a></li>
+            <li><a href="#sourcing">Western Ghats Terroir</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>The Experience</h5>
+          <ul>
+            <li><a href="#craft">Artisanal Craft</a></li>
+            <li><a href="#flavor">Sensory Profiles</a></li>
+            <li><a href="#heritage">Growers & Estates</a></li>
+            <li><a href="#journal">Field Dispatches</a></li>
+            <li><a href="#order">WhatsApp Orders</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Connect</h5>
+          <ul>
+            <li><a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a></li>
+            <li><a href="https://facebook.com" target="_blank" rel="noopener">Facebook</a></li>
+            <li><a href="https://youtube.com" target="_blank" rel="noopener">YouTube</a></li>
+            <li><a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a></li>
+            <li><a href="tel:+918074784116">Phone Support</a></li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Monumental Architectural Wordmark (Matching Reference Video Frame 12.0s) -->
+    <div class="footer-monumental-wordmark-wrap">
+      <div class="footer-giant-wordmark">
+        AURELIA
+      </div>
+    </div>
+
+    <div class="wrap">
+      <div class="footer-bottom-bar">
+        <div class="footer-legal-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Sourcing Transparency</a>
+          <a href="#">Shipping & Deliveries</a>
+          <a href="#">Terms of Service</a>
+        </div>
+        <div>© 2026 Aurelia Coffee. All rights reserved. Indian Specialty Coffee, Crafted With Intention.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       PERSISTENT FLOATING CONTACT ACTIONS (WHATSAPP & CALL)
+       ========================================================================== -->
+  <div class="contact-actions" aria-label="Quick contact buttons">
+    <a class="contact-action whatsapp" href="https://api.whatsapp.com/send?phone=918074784116&text=Hello%20Aurelia%2C%20I%20am%20interested%20in%20your%20Indian%20coffee%20collection.%20I%20would%20like%20to%20know%20more%20about%20the%20available%20coffees%20and%20how%20to%20order." aria-label="Chat with Aurelia on WhatsApp" title="WhatsApp Us" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 3.5A11.8 11.8 0 0 0 12.1 0C5.6 0 .3 5.3.3 11.8c0 2.1.6 4.1 1.6 5.8L.2 24l6.6-1.7a11.8 11.8 0 0 0 5.3 1.3h.1c6.5 0 11.8-5.3 11.8-11.8 0-3.2-1.3-6.1-3.5-8.3Zm-8.4 18.1h-.1c-1.7 0-3.4-.5-4.8-1.4l-.3-.2-3.9 1 1-3.8-.2-.3a9.7 9.7 0 1 1 8.3 4.7Zm5.3-7.3c-.3-.2-1.8-.9-2.1-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.6c.2-.2.2-.4.3-.6.1-.2 0-.4 0-.6s-.7-1.7-1-2.3c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.1 1.1-1.1 2.7s1.1 3.1 1.3 3.3c.2.2 2.2 3.4 5.4 4.7.8.3 1.4.5 1.9.6.8.3 1.5.2 2 .1.6-.1 1.8-.7 2.1-1.4.3-.7.3-1.3.2-1.4-.1-.1-.3-.2-.6-.4Z"/></svg>
+    </a>
+    <a class="contact-action call" href="tel:+918074784116" aria-label="Call Aurelia Roastery" title="Call Us">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8c1.6 3.1 3.5 5 6.6 6.6l2.2-2.2c.3-.3.7-.4 1.1-.3 1.2.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C11.8 21 3 12.2 3 2.9c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.4 0 .8-.3 1.1l-2.2 2.2Z"/></svg>
+    </a>
+  </div>
+
+  <!-- ==========================================================================
+       INTERACTION & SCROLL ENGINE (LENIS + GSAP SCROLLTRIGGER)
+       ========================================================================== -->
+  <!-- Interactive & Scroll Engine -->
+  <script src="main.js"></script>
+</body>
+</html>
